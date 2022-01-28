@@ -1,0 +1,78 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+html{
+    font-size:15px;
+}
+
+.max-w-8xl{
+    max-width: 88rem;
+}
+
+.max-w-9xl{
+    max-width: 96rem;
+}
+
+
+.w-22perc{
+    width:22%;
+}
+
+
+/* modal */
+.modal {
+    transition: opacity 0.25s ease;
+    z-index: 100 !important;
+}
+body.modal-active {
+    overflow-x: hidden;
+    overflow-y: visible !important;
+}
+
+/*Pagination*/
+.page-item{
+    display: inline-flex;
+}
+.page-item a{
+    border-radius: 3px;
+    margin-right: 4px;
+    color: #929191;
+    border: 1px solid #929191;
+    transition-duration: 150ms;
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-left: -1px;
+    line-height: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    align-items: center;
+    background-color: rgba(255, 255, 255, var(--bg-opacity));
+}
+.page-item.active a{
+    border: 1px solid #83afa9;
+    color: #216f4d;
+    font-weight: bold;
+    background-color: #d2f7f2;
+}
+
+/* Animated */
+.result-table-enter-active{
+    transition: all 1s;
+}
+.result-table-leave-active {
+    transition: opacity 0.1s;
+}
+.result-table-enter,
+.result-table-leave-to {
+    opacity: 0;
+}
+.min-w-16px{
+    min-width: 1rem;
+}
+

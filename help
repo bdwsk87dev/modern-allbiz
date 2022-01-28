@@ -1,0 +1,57 @@
+
+In mysql array, set strict => false to disable MySQL's strict mode
+
+1 !!
+$query = TaskLog::with('campaign:campaign_name')->select('campaign_id')
+
+2 !!
+Post::query()
+    ->with(array('user' => function($query) {
+        $query->select('id','username');
+    }))
+    ->get();
+
+
+
+$user_info = DB::table('usermetas')
+                 ->select('browser', DB::raw('count(*) as total'))
+                 ->groupBy('browser')
+                 ->get();
+
+
+
+use Carbon\Carbon;
+$visitorTraffic = PageView::select('id', 'title', 'created_at')
+    ->get()
+    ->groupBy(function($date) {
+        return Carbon::parse($date->created_at)->format('Y'); // grouping by years
+        //return Carbon::parse($date->created_at)->format('m'); // grouping by months
+    });
+
+
+
+    $visitorTraffic = PageView::where('created_at', '>=', \Carbon\Carbon::now->subMonth())
+                            ->groupBy(DB::raw('Date(created_at)'))
+                            ->orderBy('created_at', 'DESC')->get();
+
+
+
+    ->groupBy(DB::raw("DATE_FORMAT(created_at, '%Y-%m-%d')"))
+
+
+    5
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    select count(IF(Position = 'Manager', 1, NULL)) as ManagerCount
+
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    is here
+            $query = TaskLog::select(DB::raw('count(DISTINCT task_id) as check_count') , 'campaign_id', 'task_id', DB::raw("DATE_FORMAT(updated_at, '%d-%m-%Y') as date"),  DB::raw('count(*) as total') , DB::raw('count(IF(type = "", 1, NULL))as total2'))
+                ->whereNotNull('campaign_id')
+                ->where('campaign_id' , '<>' , '')
+                ->groupBy('task_id')
+                ->groupBy('campaign_id')
+                ->groupBy('date')
+                ->orderBy(DB::raw("DATE_FORMAT(updated_at, '%Y-%m-%d')"), 'desc')
+                ->paginate(25);
+            return response()->json($query);
+
