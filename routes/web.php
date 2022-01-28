@@ -10,7 +10,7 @@ use App\Http\Controllers\DailyTasksLogController;
 use App\Http\Controllers\CampaignsCheckerController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ProductsApiController;
 
 // Main page
 Route::get('/', function () {
@@ -102,8 +102,6 @@ Route::get('/daily_checker', function () {
 });
 
 Route::get('/clear', function() { Artisan::call('cache:clear'); Artisan::call('config:clear'); Artisan::call('config:cache'); Artisan::call('view:clear'); Artisan::call('route:clear'); return "Cleared!"; });
-
-
 Route::post('/api/auth/login', [AuthController::class, 'login']);
 
 // Oath
@@ -118,40 +116,21 @@ Route::group([
     });
 });
 
+/*
+ * Workin with Google Adwords products
+ */
+Route::middleware(['auth:sanctum', 'verified'])->name('admin.')->group(function () {
+    Route::get('/adwords-product-manager/list', function () {
+        return Inertia\Inertia::render('AdwPMList');
+    })->name('adwords-product-manager-list');
+});
 
 
-Route::get('/products', [ProductsController::class, 'index']);
 
 
 
 
 
 
-
-// DND
-//Route::get('/checker', function () {
-//    $check = new CheckerController();
-//    $check->start();
-//});
-
-//echo Artisan::call('cache:clear');
-//echo Artisan::call('route:clear');
-
-//Route::group([
-//    'prefix' => 'auth'
-//], function () {
-//    Route::post('login', 'App\Http\Controllers\AuthController@login');
-//    Route::post('signup', 'App\Http\Controllers\AuthController@signup');
-//
-//    Route::group([
-//        'middleware' => 'auth:api'
-//    ], function() {
-//        Route::get('logout', 'App\Http\Controllers\AuthController@logout');
-//        Route::get('user', 'App\Http\Controllers\AuthController@user');
-//    });
-//});
-
-
-// https://developers.google.com/adwords/api/docs/appendix/reports/shopping-performance-report
 
 

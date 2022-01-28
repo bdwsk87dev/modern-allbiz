@@ -55,3 +55,31 @@ $visitorTraffic = PageView::select('id', 'title', 'created_at')
                 ->paginate(25);
             return response()->json($query);
 
+
+
+
+// DND
+//Route::get('/checker', function () {
+//    $check = new CheckerController();
+//    $check->start();
+//});
+
+//echo Artisan::call('cache:clear');
+//echo Artisan::call('route:clear');
+
+//Route::group([
+//    'prefix' => 'auth'
+//], function () {
+//    Route::post('login', 'App\Http\Controllers\AuthController@login');
+//    Route::post('signup', 'App\Http\Controllers\AuthController@signup');
+//
+//    Route::group([
+//        'middleware' => 'auth:api'
+//    ], function() {
+//        Route::get('logout', 'App\Http\Controllers\AuthController@logout');
+//        Route::get('user', 'App\Http\Controllers\AuthController@user');
+//    });
+//});
+
+
+// https://developers.google.com/adwords/api/docs/appendix/reports/shopping-performance-report
