@@ -202,6 +202,7 @@ class AdwordsApiController
         return $result;
     }
 
+
     /**
      * @param $campaignId
      * @return mixed
@@ -1181,4 +1182,19 @@ class AdwordsApiController
         return true;
     }
 
+    public function getPoorProducts(){
+        $fromDate = Carbon::now()->subDays(30)->format('Ymd');
+        $now = Carbon::now()->subDays(1)->format('Ymd');
+        $result = $this->ads->report()
+            // aggregated at the product
+            ->from('SHOPPING_PERFORMANCE_REPORT')
+            ->during($fromDate, $now)
+            ->select('Clicks', 'Conversions', 'Cost', 'ConversionValue', 'Impressions' )
+            ->getAsObj();
+        return $result;
+    }
 }
+
+// HELPER
+// aggregated at the product
+// SHOPPING_PERFORMANCE_REPORT

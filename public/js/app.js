@@ -12961,10 +12961,273 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      // Customers list
+      message: '',
+      recieveMessage: '',
+      timer: null
+    };
+  },
   components: {
     JetApplicationLogo: _Jetstream_ApplicationLogo__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  methods: {
+    changeMessage: function changeMessage(m) {
+      var _this = this;
+
+      this.recieveMessage = m;
+      clearInterval(this.timer);
+      this.message = '';
+      var i = -1;
+      this.timer = setInterval(function () {
+        i++;
+        _this.message += _this.recieveMessage[i];
+      }, 60 - Math.random() * 20);
+    }
+  },
+  watch: {
+    message: function message() {
+      console.log(this.recieveMessage.length + ' - ' + this.recieveMessage.length);
+
+      if (this.message.length >= this.recieveMessage.length) {
+        clearInterval(this.timer);
+      }
+    }
   }
 });
 
@@ -14357,8 +14620,34 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AdwPMList",
+  data: function data() {
+    return {
+      // Current products page
+      page: 1,
+      // Products array
+      products: []
+    };
+  },
+  methods: {
+    getPoorProducts: function getPoorProducts(page) {
+      var app = this;
+      axios({
+        method: 'post',
+        url: '/api/v1/products/poor/list',
+        data: {
+          'page': page
+        }
+      }).then(function (resp) {
+        console.log('done!');
+      });
+    }
+  },
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  mounted: function mounted() {
+    // Get poor products page one
+    this.getPoorProducts(1);
   }
 });
 
@@ -14374,6 +14663,17 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -17455,6 +17755,183 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
     Welcome: _Jetstream_Welcome__WEBPACK_IMPORTED_MODULE_1__["default"]
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/ImportCampaignsWizard.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/ImportCampaignsWizard.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      // Customers list
+      customers: [],
+      // Customer search string
+      searchString: '',
+      // Sort icon images / asc / des
+      sortIcon: '',
+      // sort data
+      sort: {
+        'sortField': 'customers.id',
+        'type': false
+      },
+      vuePagination: {},
+      pagination: {
+        'total_page': 0,
+        'from': 0,
+        'to': 0,
+        'current_page': 1
+      },
+      // Selected customers for import
+      customers_ids: []
+    };
+  },
+  components: {
+    AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  methods: {
+    changePage: function changePage() {
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      this.getCustomers(page);
+    },
+    getCustomers: function getCustomers() {
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      console.log('get customers list');
+      var app = this;
+      axios({
+        method: 'post',
+        url: '/api/v1/customers',
+        data: {
+          'requestType': 'getCustomers',
+          'sortField': app.sort.sortField,
+          'type': app.sort.type,
+          'searchString': app.searchString,
+          'page': app.page,
+          'itemsPerPage': 50
+        }
+      }).then(function (resp) {
+        // account data
+        app.customers = resp.data.data; // data fo laravel-vue-pagination
+
+        app.vuePagination = resp.data; // data for simple text pagination
+
+        app.pagination.total_page = resp.data.total;
+        app.pagination.from = resp.data.from;
+        app.pagination.to = resp.data.to;
+      })["catch"](function (resp) {
+        console.log(resp);
+        alert("Could not load customers !");
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getCustomers();
   }
 });
 
@@ -38891,6 +39368,663 @@ var render = function() {
   return _c("div", [
     _vm._m(0),
     _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass:
+          "p-6 sm:px-20 bg-white border-b border-gray-200 bg-gray-100"
+      },
+      [
+        _c("div", { staticClass: "site-wrapper" }, [
+          _c("div", { staticClass: "pt-table desktop-768" }, [
+            _c(
+              "div",
+              {
+                staticClass: "pt-tablecell page-home relative",
+                staticStyle: {
+                  "background-position": "center",
+                  "background-size": "cover"
+                }
+              },
+              [
+                _c("div", { staticClass: "container" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8 h-96 pl-14"
+                      },
+                      [
+                        _c("div", { staticClass: "hexagon-menu clear" }, [
+                          _c("div", { staticClass: "hexagon-item" }, [
+                            _vm._m(1),
+                            _vm._v(" "),
+                            _vm._m(2),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "hex-content",
+                                attrs: {
+                                  target: "_blank",
+                                  href: "/admin/customers_history"
+                                },
+                                on: {
+                                  mouseenter: function($event) {
+                                    return _vm.changeMessage(
+                                      "Результаты еженедельных проверок всех клиентов\n" +
+                                        "за каждый день каждый клиент отображается только один раз, внутри которого находятся все записи этого клиента за определённый день."
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "span",
+                                  { staticClass: "hex-content-inner" },
+                                  [
+                                    _c("span", { staticClass: "icon" }, [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticClass: "h-8 w-8",
+                                          staticStyle: {
+                                            margin: "0 auto",
+                                            position: "relative",
+                                            left: "0px"
+                                          },
+                                          attrs: {
+                                            xmlns: "http://www.w3.org/2000/svg",
+                                            fill: "none",
+                                            viewBox: "0 0 24 24",
+                                            stroke: "currentColor"
+                                          }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              "stroke-linecap": "round",
+                                              "stroke-linejoin": "round",
+                                              "stroke-width": "2",
+                                              d:
+                                                "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("span", { staticClass: "title" }, [
+                                      _vm._v("Оптимизация клиентов")
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "svg",
+                                  {
+                                    attrs: {
+                                      viewBox: "0 0 173.20508075688772 200",
+                                      height: "200",
+                                      width: "174",
+                                      version: "1.1",
+                                      xmlns: "http://www.w3.org/2000/svg"
+                                    }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z",
+                                        fill: "#1e2530"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "hexagon-item" }, [
+                            _vm._m(3),
+                            _vm._v(" "),
+                            _vm._m(4),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "hex-content",
+                                attrs: {
+                                  target: "_blank",
+                                  href: "/admin/campaigns_history"
+                                },
+                                on: {
+                                  mouseenter: function($event) {
+                                    return _vm.changeMessage(
+                                      "Результаты еженедельных проверок всех кампаний за один день.\n" +
+                                        "За каждый день каждая кампания отображается только один раз, внутри которой находятся все записи этой кампании за этот день."
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "span",
+                                  { staticClass: "hex-content-inner" },
+                                  [
+                                    _c("span", { staticClass: "icon" }, [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticClass: "h-8 w-8",
+                                          staticStyle: {
+                                            margin: "0 auto",
+                                            position: "relative",
+                                            left: "0px"
+                                          },
+                                          attrs: {
+                                            xmlns: "http://www.w3.org/2000/svg",
+                                            fill: "none",
+                                            viewBox: "0 0 24 24",
+                                            stroke: "currentColor"
+                                          }
+                                        },
+                                        [
+                                          _c("path", {
+                                            attrs: {
+                                              "stroke-linecap": "round",
+                                              "stroke-linejoin": "round",
+                                              "stroke-width": "2",
+                                              d:
+                                                "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("span", { staticClass: "title" }, [
+                                      _vm._v("Оптимизация кампаний")
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "svg",
+                                  {
+                                    attrs: {
+                                      viewBox: "0 0 173.20508075688772 200",
+                                      height: "200",
+                                      width: "174",
+                                      version: "1.1",
+                                      xmlns: "http://www.w3.org/2000/svg"
+                                    }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z",
+                                        fill: "#1e2530"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "hexagon-item" }, [
+                            _vm._m(5),
+                            _vm._v(" "),
+                            _vm._m(6),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "hex-content",
+                                attrs: {
+                                  target: "_blank",
+                                  href: "/admin/campaigns"
+                                },
+                                on: {
+                                  mouseenter: function($event) {
+                                    return _vm.changeMessage(
+                                      "Импортирование кампаний в систему через встроенный помощник."
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "span",
+                                  { staticClass: "hex-content-inner" },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "h-10 w-10",
+                                        staticStyle: {
+                                          margin: "0 auto",
+                                          position: "relative",
+                                          left: "0px"
+                                        },
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          fill: "none",
+                                          viewBox: "0 0 24 24",
+                                          stroke: "currentColor"
+                                        }
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "stroke-linecap": "round",
+                                            "stroke-linejoin": "round",
+                                            "stroke-width": "2",
+                                            d: "M19 13l-7 7-7-7m14-8l-7 7-7-7"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("span", { staticClass: "title" }, [
+                                      _vm._v("Импорт кампаний")
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "svg",
+                                  {
+                                    attrs: {
+                                      viewBox: "0 0 173.20508075688772 200",
+                                      height: "200",
+                                      width: "174",
+                                      version: "1.1",
+                                      xmlns: "http://www.w3.org/2000/svg"
+                                    }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z",
+                                        fill: "#1e2530"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "hexagon-item" }, [
+                            _vm._m(7),
+                            _vm._v(" "),
+                            _vm._m(8),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "hex-content",
+                                attrs: {
+                                  target: "_blank",
+                                  href: "/admin/checker-history"
+                                },
+                                on: {
+                                  mouseenter: function($event) {
+                                    return _vm.changeMessage(
+                                      "Просмотр логов еженедельных оптимизаций в подробном виде."
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "span",
+                                  { staticClass: "hex-content-inner" },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "h-10 w-10",
+                                        staticStyle: {
+                                          margin: "0 auto",
+                                          position: "relative",
+                                          left: "0px"
+                                        },
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          fill: "none",
+                                          viewBox: "0 0 24 24",
+                                          stroke: "currentColor"
+                                        }
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "stroke-linecap": "round",
+                                            "stroke-linejoin": "round",
+                                            "stroke-width": "2",
+                                            d:
+                                              "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("span", { staticClass: "title" }, [
+                                      _vm._v("Логи")
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "svg",
+                                  {
+                                    attrs: {
+                                      viewBox: "0 0 173.20508075688772 200",
+                                      height: "200",
+                                      width: "174",
+                                      version: "1.1",
+                                      xmlns: "http://www.w3.org/2000/svg"
+                                    }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z",
+                                        fill: "#1e2530"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "hexagon-item" }, [
+                            _vm._m(9),
+                            _vm._v(" "),
+                            _vm._m(10),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "hex-content",
+                                attrs: {
+                                  target: "_blank",
+                                  href: "/admin/customers"
+                                },
+                                on: {
+                                  mouseenter: function($event) {
+                                    _vm.changeMessage(
+                                      "Просмотр, редактирование, добавление клиентов (customers)."
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "span",
+                                  { staticClass: "hex-content-inner" },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "h-10 w-10",
+                                        staticStyle: {
+                                          margin: "0 auto",
+                                          position: "relative",
+                                          left: "0px"
+                                        },
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          fill: "none",
+                                          viewBox: "0 0 24 24",
+                                          stroke: "currentColor"
+                                        }
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "stroke-linecap": "round",
+                                            "stroke-linejoin": "round",
+                                            "stroke-width": "2",
+                                            d:
+                                              "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("span", { staticClass: "title" }, [
+                                      _vm._v("Список клиентов")
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "svg",
+                                  {
+                                    attrs: {
+                                      viewBox: "0 0 173.20508075688772 200",
+                                      height: "200",
+                                      width: "174",
+                                      version: "1.1",
+                                      xmlns: "http://www.w3.org/2000/svg"
+                                    }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z",
+                                        fill: "#1e2530"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "hexagon-item" }, [
+                            _vm._m(11),
+                            _vm._v(" "),
+                            _vm._m(12),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "hex-content",
+                                attrs: {
+                                  target: "_blank",
+                                  href: "/admin/campaigns"
+                                },
+                                on: {
+                                  mouseenter: function($event) {
+                                    return _vm.changeMessage(
+                                      "Просмотр, редактирование, добавление и импорт кампаний."
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "span",
+                                  { staticClass: "hex-content-inner" },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "h-10 w-10",
+                                        staticStyle: {
+                                          margin: "0 auto",
+                                          position: "relative",
+                                          left: "0px"
+                                        },
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          viewBox: "0 0 20 20",
+                                          fill: "currentColor"
+                                        }
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "fill-rule": "evenodd",
+                                            d:
+                                              "M10.496 2.132a1 1 0 00-.992 0l-7 4A1 1 0 003 8v7a1 1 0 100 2h14a1 1 0 100-2V8a1 1 0 00.496-1.868l-7-4zM6 9a1 1 0 00-1 1v3a1 1 0 102 0v-3a1 1 0 00-1-1zm3 1a1 1 0 012 0v3a1 1 0 11-2 0v-3zm5-1a1 1 0 00-1 1v3a1 1 0 102 0v-3a1 1 0 00-1-1z",
+                                            "clip-rule": "evenodd"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("span", { staticClass: "title" }, [
+                                      _vm._v("Список кампаний")
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "svg",
+                                  {
+                                    attrs: {
+                                      viewBox: "0 0 173.20508075688772 200",
+                                      height: "200",
+                                      width: "174",
+                                      version: "1.1",
+                                      xmlns: "http://www.w3.org/2000/svg"
+                                    }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z",
+                                        fill: "#1e2530"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "hexagon-item" }, [
+                            _vm._m(13),
+                            _vm._v(" "),
+                            _vm._m(14),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "hex-content",
+                                attrs: {
+                                  target: "_blank",
+                                  href: "/admin/accounts"
+                                },
+                                on: {
+                                  mouseenter: function($event) {
+                                    return _vm.changeMessage(
+                                      "Просмотр, редактирование, добавление аккаунтов. OAuth настройки для подключение к adwords."
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "span",
+                                  { staticClass: "hex-content-inner" },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "h-10 w-10",
+                                        staticStyle: {
+                                          margin: "0 auto",
+                                          position: "relative",
+                                          left: "0px"
+                                        },
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          fill: "none",
+                                          viewBox: "0 0 24 24",
+                                          stroke: "currentColor"
+                                        }
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "stroke-linecap": "round",
+                                            "stroke-linejoin": "round",
+                                            "stroke-width": "2",
+                                            d:
+                                              "M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("span", { staticClass: "title" }, [
+                                      _vm._v("Список аккаунтов")
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "svg",
+                                  {
+                                    attrs: {
+                                      viewBox: "0 0 173.20508075688772 200",
+                                      height: "200",
+                                      width: "174",
+                                      version: "1.1",
+                                      xmlns: "http://www.w3.org/2000/svg"
+                                    }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z",
+                                        fill: "#1e2530"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]
+                            )
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "page-title home text-center h-10" },
+                      [
+                        _vm._v(
+                          "\n                  " +
+                            _vm._s(_vm.message) +
+                            "\n                "
+                        )
+                      ]
+                    )
+                  ])
+                ])
+              ]
+            )
+          ])
+        ])
+      ]
+    ),
+    _vm._v(" "),
     _c("p", { staticClass: "p-6" }, [
       _vm._v("Включать и выключать кампании теперь можно из админки")
     ]),
@@ -38926,11 +40060,11 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _vm._m(1)
+            _vm._m(15)
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "ml-12" }, [
-            _vm._m(2),
+            _vm._m(16),
             _vm._v(" "),
             _c("a", { attrs: { href: "/admin/accounts" } }, [
               _c(
@@ -39035,11 +40169,11 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _vm._m(3)
+              _vm._m(17)
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "ml-12" }, [
-              _vm._m(4),
+              _vm._m(18),
               _vm._v(" "),
               _c("a", { attrs: { href: "/admin/customers" } }, [
                 _c(
@@ -39102,11 +40236,11 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _vm._m(5)
+            _vm._m(19)
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "ml-12" }, [
-            _vm._m(6),
+            _vm._m(20),
             _vm._v(" "),
             _c("a", { attrs: { href: "/admin/customers_history" } }, [
               _c(
@@ -39168,11 +40302,11 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _vm._m(7)
+            _vm._m(21)
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "ml-12" }, [
-            _vm._m(8),
+            _vm._m(22),
             _vm._v(" "),
             _c("a", { attrs: { href: "/admin/campaigns_history" } }, [
               _c(
@@ -39209,7 +40343,13 @@ var render = function() {
           ])
         ])
       ]
-    )
+    ),
+    _vm._v(" "),
+    _c("p", { staticClass: "p-6" }, [
+      _vm._v(
+        'Оптимизация работает. Импорт кампаний работает через страницу "Список кампаний". Страница визарда по импорту кампаний ещё в разработке.ю'
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -39219,29 +40359,186 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "p-6 sm:px-20 bg-white border-b border-gray-200" },
+      { staticClass: "p-3 sm:px-20 bg-white border-b border-gray-200" },
       [
-        _c("div", { staticClass: "mt-2 text-2xl" }, [
-          _vm._v(
-            "\n      Система для автоматической оптимизации adwords кампаний.\n    "
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "mt-6 text-gray-500" }, [
-          _vm._v(
-            "\n      В данном приложении можно настроить автоматическую проверку рекламных компаний "
-          ),
-          _c("b", [_vm._v("adwords")]),
-          _vm._v(" согласно "),
-          _c("b", [_vm._v("алгоритму\n      проверки 2.0")]),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v("\n      Версия системы : 13012022_1137"),
-          _c("br"),
-          _vm._v("\n      Версия алгоритма : январь 2022\n    ")
+        _c("div", { staticClass: "text-xs mb-4 text-gray-500" }, [
+          _c("div", { staticClass: "float-left" }, [
+            _vm._v("Дата последнего обновления : 23.02.2022 - 21:30")
+          ]),
+          _c("div", { staticClass: "float-right" }, [
+            _vm._v("Версия алгоритма : январь 2022")
+          ])
         ])
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "hex-item" }, [
+      _c("div"),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("div")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "hex-item" }, [
+      _c("div"),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("div")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "hex-item" }, [
+      _c("div"),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("div")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "hex-item" }, [
+      _c("div"),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("div")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "hex-item" }, [
+      _c("div"),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("div")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "hex-item" }, [
+      _c("div"),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("div")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "hex-item" }, [
+      _c("div"),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("div")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "hex-item" }, [
+      _c("div"),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("div")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "hex-item" }, [
+      _c("div"),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("div")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "hex-item" }, [
+      _c("div"),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("div")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "hex-item" }, [
+      _c("div"),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("div")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "hex-item" }, [
+      _c("div"),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("div")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "hex-item" }, [
+      _c("div"),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("div")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "hex-item" }, [
+      _c("div"),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("div")
+    ])
   },
   function() {
     var _vm = this
@@ -39259,13 +40556,13 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "mt-2 text-sm text-gray-500" }, [
       _vm._v(
-        "\n          Аккаунты являются частью системы и содержат в себе информацию, необходимую для установки соединения с "
+        "\n            Аккаунты являются частью системы и содержат в себе информацию, необходимую для установки соединения с "
       ),
       _c("b", [_vm._v("Adwords")]),
-      _vm._v("\n          через "),
+      _vm._v("\n            через "),
       _c("b", [_vm._v("Api")]),
       _vm._v(
-        ".\n          Также в аккаунтах настраивается почта, на которую будут приходить сообщения в случае ошибок.\n        "
+        ".\n            Также в аккаунтах настраивается почта, на которую будут приходить сообщения в случае ошибок.\n          "
       )
     ])
   },
@@ -39285,11 +40582,11 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "mt-2 text-sm text-gray-500" }, [
       _vm._v(
-        "\n          Клиенты - это customers из Google Adwords. Это аккаунты по типу 429-XXX-XXXX. Клиентов можно импортировать\n          по отдельности.\n          "
+        "\n            Клиенты - это customers из Google Adwords. Это аккаунты по типу 429-XXX-XXXX. Клиентов можно импортировать\n            по отдельности.\n            "
       ),
       _c("br"),
       _vm._v(
-        "Можно импортировать всех сразу, если указать\n          id который принадлежит менеджеру, тогда подтянуться все дочерние аккаунты сразу.\n          "
+        "Можно импортировать всех сразу, если указать\n            id который принадлежит менеджеру, тогда подтянуться все дочерние аккаунты сразу.\n            "
       )
     ])
   },
@@ -39302,7 +40599,7 @@ var staticRenderFns = [
       { staticClass: "ml-4 text-lg text-gray-600 leading-7 font-semibold" },
       [
         _c("a", { attrs: { href: "/admin/customers_history" } }, [
-          _vm._v("История\n          клиентов ( customers )")
+          _vm._v("История\n            клиентов ( customers )")
         ])
       ]
     )
@@ -39313,11 +40610,11 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "mt-2 text-sm text-gray-500" }, [
       _vm._v(
-        "\n          На данной странице отображены результаты еженедельных проверок всех клиентов следующим образом : "
+        "\n            На данной странице отображены результаты еженедельных проверок всех клиентов следующим образом : "
       ),
       _c("br"),
       _vm._v(
-        "за один\n          день сгруппированы все записи каждого клиента.\n          За один день каждый клиент отображается только один раз, внутри которого находятся все записи этого клиента\n          за этот день.\n        "
+        "за один\n            день сгруппированы все записи каждого клиента.\n            За один день каждый клиент отображается только один раз, внутри которого находятся все записи этого клиента\n            за этот день.\n          "
       )
     ])
   },
@@ -39330,7 +40627,7 @@ var staticRenderFns = [
       { staticClass: "ml-4 text-lg text-gray-600 leading-7 font-semibold" },
       [
         _c("a", { attrs: { href: "/admin/campaigns_history" } }, [
-          _vm._v("История\n          кампании")
+          _vm._v("История\n            кампании")
         ])
       ]
     )
@@ -39341,11 +40638,11 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "mt-2 text-sm text-gray-500" }, [
       _vm._v(
-        "\n          На данной странице отображены результаты еженедельных проверок всех кампаний следующим образом : за один\n          день сгруппированы все записи каждой кампании. "
+        "\n            На данной странице отображены результаты еженедельных проверок всех кампаний следующим образом : за один\n            день сгруппированы все записи каждой кампании. "
       ),
       _c("br"),
       _vm._v(
-        "\n          за один день каждая кампания отображается только один раз, внутри которой находятся все записи этой кампании\n          за этот день.\n        "
+        "\n            за один день каждая кампания отображается только один раз, внутри которой находятся все записи этой кампании\n            за этот день.\n          "
       )
     ])
   }
@@ -43621,6 +44918,40 @@ var render = function() {
                             "th",
                             {
                               staticClass:
+                                "cursor-pointer px-3 py-3 border-b-2 border-blue-500 text-left text-sm leading-4 text-blue-500 tracking-wider w-36",
+                              on: {
+                                click: function($event) {
+                                  return _vm.changeSort("customers.customer_id")
+                                }
+                              }
+                            },
+                            [
+                              _c("div", { staticClass: "inline-flex" }, [
+                                _c("div", { staticClass: "inline-block" }, [
+                                  _vm._v("Id клиента")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "inline-block min-w-16px" },
+                                  [
+                                    _vm._v(
+                                      _vm._s(
+                                        _vm.sortIconShow(
+                                          "customers.customer_name"
+                                        )
+                                      ) + "\n                    "
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "th",
+                            {
+                              staticClass:
                                 "cursor-pointer px-3 py-3 border-b-2 border-blue-500  text-left text-sm leading-4 text-blue-500 tracking-wider",
                               on: {
                                 click: function($event) {
@@ -44014,6 +45345,34 @@ var render = function() {
                                   _vm._v(
                                     "\n                  " +
                                       _vm._s(col.customer_name) +
+                                      "\n                "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "td",
+                                {
+                                  staticClass:
+                                    "px-3 py-4  border-b text-blue-900 text-sm leading-5 break-normal"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                  " +
+                                      _vm._s(
+                                        col.customer_id[0] +
+                                          col.customer_id[1] +
+                                          col.customer_id[2] +
+                                          "-" +
+                                          col.customer_id[3] +
+                                          col.customer_id[4] +
+                                          col.customer_id[5] +
+                                          "-" +
+                                          col.customer_id[6] +
+                                          col.customer_id[7] +
+                                          col.customer_id[8] +
+                                          col.customer_id[9]
+                                      ) +
                                       "\n                "
                                   )
                                 ]
@@ -49480,6 +50839,351 @@ var render = function() {
             { staticClass: "bg-white overflow-hidden shadow-xl sm:rounded-lg" },
             [_c("welcome")],
             1
+          )
+        ])
+      ])
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/ImportCampaignsWizard.vue?vue&type=template&id=b732d020&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/ImportCampaignsWizard.vue?vue&type=template&id=b732d020& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "app-layout",
+    {
+      scopedSlots: _vm._u([
+        {
+          key: "header",
+          fn: function() {
+            return [
+              _c(
+                "h2",
+                {
+                  staticClass:
+                    "font-semibold text-xl text-gray-800 leading-tight"
+                },
+                [_vm._v("\n      Добавление кампаний Шаг1\n    ")]
+              )
+            ]
+          },
+          proxy: true
+        }
+      ])
+    },
+    [
+      _vm._v(" "),
+      _c("div", { staticClass: "py-6" }, [
+        _c("div", { staticClass: "max-w-9xl mx-auto sm:px-6 lg:px-8 " }, [
+          _c(
+            "div",
+            {
+              staticClass:
+                "p-6 sm:px-20 bg-white border-b border-gray-200 mb-2 rounded"
+            },
+            [
+              _c("div", { staticClass: "text-gray-500 text-xs" }, [
+                _vm._v("\n          Some text here!!\n        ")
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "bg-white overflow-hidden shadow-xl sm:rounded-lg pt-4 pb-4"
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "align-middle inline-block min-w-full overflow-hidden bg-white shadow-dashboard px-8 pt-3"
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "sm:flex-1 sm:flex sm:items-center sm:justify-between work-sans"
+                    },
+                    [
+                      _c(
+                        "div",
+                        [
+                          _c(
+                            "pagination",
+                            {
+                              attrs: { limit: 2, data: _vm.vuePagination },
+                              on: { "pagination-change-page": _vm.changePage }
+                            },
+                            [
+                              _c(
+                                "span",
+                                {
+                                  attrs: { slot: "prev-nav" },
+                                  slot: "prev-nav"
+                                },
+                                [_vm._v("< Назад")]
+                              ),
+                              _vm._v("-->\n                "),
+                              _c(
+                                "span",
+                                {
+                                  attrs: { slot: "next-nav" },
+                                  slot: "next-nav"
+                                },
+                                [_vm._v("Вперёд >")]
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "table",
+                    { staticClass: "min-w-full" },
+                    [
+                      _c("thead", [
+                        _c("tr", [
+                          _c(
+                            "th",
+                            {
+                              staticClass:
+                                "cursor-pointer px-3 py-3 border-b-2 border-blue-500 text-left text-sm leading-4 text-blue-500 tracking-wider"
+                            },
+                            [
+                              _c("div", { staticClass: "inline-flex" }, [
+                                _c("div", { staticClass: "inline-block" }, [
+                                  _vm._v("Аккаунт")
+                                ]),
+                                _vm._v(" "),
+                                _c("div", {
+                                  staticClass: "inline-block min-w-16px"
+                                })
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "th",
+                            {
+                              staticClass:
+                                "cursor-pointer px-3 py-3 border-b-2 border-blue-500 text-left text-sm leading-4 text-blue-500 tracking-wider"
+                            },
+                            [
+                              _c("div", { staticClass: "inline-flex" }, [
+                                _c("div", { staticClass: "inline-block" }, [
+                                  _vm._v("Клиент")
+                                ]),
+                                _vm._v(" "),
+                                _c("div", {
+                                  staticClass: "inline-block min-w-16px"
+                                })
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "th",
+                            {
+                              staticClass:
+                                "cursor-pointer px-3 py-3 border-b-2 border-blue-500 text-left text-sm leading-4 text-blue-500 tracking-wider"
+                            },
+                            [
+                              _c("div", { staticClass: "inline-flex" }, [
+                                _c("div", { staticClass: "inline-block" }, [
+                                  _vm._v("Id клиента")
+                                ]),
+                                _vm._v(" "),
+                                _c("div", {
+                                  staticClass: "inline-block min-w-16px"
+                                })
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "th",
+                            {
+                              staticClass:
+                                "cursor-pointer px-3 py-3 border-b-2 border-blue-500 text-left text-sm leading-4 text-blue-500 tracking-wider"
+                            },
+                            [
+                              _c("div", { staticClass: "inline-flex" }, [
+                                _c("div", { staticClass: "inline-block" }, [
+                                  _vm._v("Менеджер")
+                                ]),
+                                _vm._v(" "),
+                                _c("div", {
+                                  staticClass: "inline-block min-w-16px"
+                                })
+                              ])
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "transition-group",
+                        { tag: "tbody", attrs: { name: "result-table" } },
+                        _vm._l(_vm.customers, function(col) {
+                          return _c(
+                            "tr",
+                            {
+                              key: col.idCustomer,
+                              staticClass: "result-table-item"
+                            },
+                            [
+                              _c(
+                                "td",
+                                {
+                                  staticClass:
+                                    " px-3 py-4 border-b border-sky-900 text-blue-900  text-sm leading-5"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                  " +
+                                      _vm._s(col.account_name) +
+                                      "\n                "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "td",
+                                {
+                                  staticClass:
+                                    " px-3 py-4 border-b border-sky-900 text-blue-900  text-sm leading-5"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                  " +
+                                      _vm._s(col.customer_name) +
+                                      "\n                "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "td",
+                                {
+                                  staticClass:
+                                    " px-3 py-4 border-b border-sky-900 text-blue-900  text-sm leading-5"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                  " +
+                                      _vm._s(col.customer_id) +
+                                      "\n                "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "td",
+                                {
+                                  staticClass:
+                                    " px-3 py-4 border-b border-sky-900 text-blue-900  text-sm leading-5"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                  " +
+                                      _vm._s(col.can_manage_clients) +
+                                      "\n                "
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        }),
+                        0
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "sm:flex-1 sm:flex sm:items-center sm:justify-between mt-4 work-sans"
+                    },
+                    [
+                      _c(
+                        "div",
+                        [
+                          _c(
+                            "pagination",
+                            {
+                              attrs: { limit: 2, data: _vm.vuePagination },
+                              on: { "pagination-change-page": _vm.changePage }
+                            },
+                            [
+                              _c(
+                                "span",
+                                {
+                                  attrs: { slot: "prev-nav" },
+                                  slot: "prev-nav"
+                                },
+                                [_vm._v("< Назад")]
+                              ),
+                              _vm._v("-->\n                "),
+                              _c(
+                                "span",
+                                {
+                                  attrs: { slot: "next-nav" },
+                                  slot: "next-nav"
+                                },
+                                [_vm._v("Вперёд >")]
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "mt-5 text-xs" }, [
+                    _vm._v(
+                      "Всего записей : " + _vm._s(_vm.pagination.total_page)
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "text-xs" }, [
+                    _vm._v(
+                      "Отображаются : с " +
+                        _vm._s(_vm.pagination.from ? _vm.pagination.from : 0) +
+                        " по\n            " +
+                        _vm._s(_vm.pagination.to ? _vm.pagination.to : 0)
+                    )
+                  ])
+                ]
+              )
+            ]
           )
         ])
       ])
@@ -64536,6 +66240,8 @@ var map = {
 	"./DailyCheckerHistory.vue": "./resources/js/Pages/DailyCheckerHistory.vue",
 	"./Dashboard": "./resources/js/Pages/Dashboard.vue",
 	"./Dashboard.vue": "./resources/js/Pages/Dashboard.vue",
+	"./ImportCampaignsWizard": "./resources/js/Pages/ImportCampaignsWizard.vue",
+	"./ImportCampaignsWizard.vue": "./resources/js/Pages/ImportCampaignsWizard.vue",
 	"./Profile/DeleteUserForm": "./resources/js/Pages/Profile/DeleteUserForm.vue",
 	"./Profile/DeleteUserForm.vue": "./resources/js/Pages/Profile/DeleteUserForm.vue",
 	"./Profile/LogoutOtherBrowserSessionsForm": "./resources/js/Pages/Profile/LogoutOtherBrowserSessionsForm.vue",
@@ -64852,15 +66558,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!******************************************!*\
   !*** ./resources/js/Pages/AdwPMList.vue ***!
   \******************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AdwPMList_vue_vue_type_template_id_0e199b16_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdwPMList.vue?vue&type=template&id=0e199b16&scoped=true& */ "./resources/js/Pages/AdwPMList.vue?vue&type=template&id=0e199b16&scoped=true&");
 /* harmony import */ var _AdwPMList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdwPMList.vue?vue&type=script&lang=js& */ "./resources/js/Pages/AdwPMList.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _AdwPMList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _AdwPMList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -64890,7 +66595,7 @@ component.options.__file = "resources/js/Pages/AdwPMList.vue"
 /*!*******************************************************************!*\
   !*** ./resources/js/Pages/AdwPMList.vue?vue&type=script&lang=js& ***!
   \*******************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -65465,6 +67170,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_template_id_097ba13b___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_template_id_097ba13b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/ImportCampaignsWizard.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/Pages/ImportCampaignsWizard.vue ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ImportCampaignsWizard_vue_vue_type_template_id_b732d020___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ImportCampaignsWizard.vue?vue&type=template&id=b732d020& */ "./resources/js/Pages/ImportCampaignsWizard.vue?vue&type=template&id=b732d020&");
+/* harmony import */ var _ImportCampaignsWizard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ImportCampaignsWizard.vue?vue&type=script&lang=js& */ "./resources/js/Pages/ImportCampaignsWizard.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ImportCampaignsWizard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ImportCampaignsWizard_vue_vue_type_template_id_b732d020___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ImportCampaignsWizard_vue_vue_type_template_id_b732d020___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/ImportCampaignsWizard.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/ImportCampaignsWizard.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/Pages/ImportCampaignsWizard.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ImportCampaignsWizard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ImportCampaignsWizard.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/ImportCampaignsWizard.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ImportCampaignsWizard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/ImportCampaignsWizard.vue?vue&type=template&id=b732d020&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/Pages/ImportCampaignsWizard.vue?vue&type=template&id=b732d020& ***!
+  \*************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ImportCampaignsWizard_vue_vue_type_template_id_b732d020___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ImportCampaignsWizard.vue?vue&type=template&id=b732d020& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/ImportCampaignsWizard.vue?vue&type=template&id=b732d020&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ImportCampaignsWizard_vue_vue_type_template_id_b732d020___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ImportCampaignsWizard_vue_vue_type_template_id_b732d020___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

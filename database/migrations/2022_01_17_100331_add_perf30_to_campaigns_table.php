@@ -15,9 +15,9 @@ class AddPerf30ToCampaignsTable extends Migration
     {
         Schema::table('campaigns', function (Blueprint $table) {
             //
-            $table->float('cost_30')->nullable();
-            $table->float('conv_30')->nullable();
-            $table->float('conv_value_30')->nullable();
+            $table->float('cost_30', 9,2)->nullable();
+            $table->float('conv_30', 9, 2)->nullable();
+            $table->float('conv_value_30', 9, 2)->nullable();
         });
     }
 

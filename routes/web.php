@@ -10,7 +10,7 @@ use App\Http\Controllers\DailyTasksLogController;
 use App\Http\Controllers\CampaignsCheckerController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\ProductsApiController;
+use App\Http\Controllers\ProductsController;
 
 // Main page
 Route::get('/', function () {
@@ -51,11 +51,38 @@ Route::middleware(['auth:sanctum', 'verified'])->name('admin.')->group(function 
     Route::get('/admin/customers_history', function () {
         return Inertia\Inertia::render('CustomersHistory');
     })->name('customers_history');
+    // New campaign import wizard
+    Route::get('/admin/import-campaigns-wizard', function () {
+        return Inertia\Inertia::render('ImportCampaignsWizard');
+    })->name('importCampaignsWizard');
+    // Poor products
+    Route::get('/adwords-product-manager/list', function () {
+        return Inertia\Inertia::render('AdwPMList');
+    })->name('adwords-product-manager-list');
+
 });
 
+/*
+ * Workin with Google Adwords products
+ */
+Route::middleware(['auth:sanctum', 'verified'])->name('admin.')->group(function () {
+    Route::get('/adwords-product-manager/list', function () {
+        return Inertia\Inertia::render('AdwPMList');
+    })->name('adwords-product-manager-list');
+});
+
+
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+
+
+
+
     // adwords
     Route::post('/api/v1/campaigns/adw/get', [CampaignsController::class, 'getFromAdwordsApi']);
+
+
+
+
     // Working with accounts
     Route::post('/api/v1/accounts/list', [AccountsController::class, 'list']);
     Route::post('/api/v1/accounts/simple_list', [AccountsController::class, 'simpleList']);
@@ -89,6 +116,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('/api/v1/history/customers/list', [HistoryController::class, 'getCustomersList']);
     // Страница история клиентов. Запрос на данные по одному клиенту
     Route::get('/api/v1/history/customer/{customer_id}/{date}', [HistoryController::class, 'getCustomer']); // ??
+
+    // Poor products
+    Route::post('/api/v1/products/poor/list', [ProductsController::class, 'getPoorProductsAdw']);
+    Route::get('/api/v1/products/poor/list', [ProductsController::class, 'getPoorProductsAdw']);
 });
 
 /*
@@ -116,14 +147,7 @@ Route::group([
     });
 });
 
-/*
- * Workin with Google Adwords products
- */
-Route::middleware(['auth:sanctum', 'verified'])->name('admin.')->group(function () {
-    Route::get('/adwords-product-manager/list', function () {
-        return Inertia\Inertia::render('AdwPMList');
-    })->name('adwords-product-manager-list');
-});
+
 
 
 

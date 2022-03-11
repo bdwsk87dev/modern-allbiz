@@ -1,21 +1,249 @@
 <template>
   <div>
-    <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
-      <div class="mt-2 text-2xl">
-        Система для автоматической оптимизации adwords кампаний.
+    <div class="p-3 sm:px-20 bg-white border-b border-gray-200">
+      <div class="text-xs mb-4 text-gray-500">
+        <div class="float-left">Дата последнего обновления : 23.02.2022 - 21:30</div><div class="float-right">Версия алгоритма : январь 2022</div>
       </div>
-      <div class="mt-6 text-gray-500">
-        В данном приложении можно настроить автоматическую проверку рекламных компаний <b>adwords</b> согласно <b>алгоритму
-        проверки 2.0</b>
-        <br>
-        Версия системы : 13012022_1137<br>
-        Версия алгоритма : январь 2022
+    </div>
+    <div class="p-6 sm:px-20 bg-white border-b border-gray-200 bg-gray-100">
+      <div class="site-wrapper">
+        <div class="pt-table desktop-768">
+          <div class="pt-tablecell page-home relative" style="background-position: center; background-size: cover;">
+
+            <div class="container">
+              <div class="row">
+                <div class="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8 h-96 pl-14">
+
+                  <div class="hexagon-menu clear">
+                    <div class="hexagon-item">
+                      <div class="hex-item">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                      </div>
+                      <div class="hex-item">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                      </div>
+                      <a target="_blank" href="/admin/customers_history"  @mouseenter="changeMessage('Результаты еженедельных проверок всех клиентов\n'+
+                                                        'за каждый день каждый клиент отображается только один раз, внутри которого находятся все записи этого клиента за определённый день.')"
+                         class="hex-content">
+                                              <span class="hex-content-inner">
+                                                  <span class="icon">
+                                                      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8"
+                                                           fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                           style="margin:0 auto; position:relative; left:0px;">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                  stroke-width="2"
+                                                                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                                            </svg>
+                                                  </span>
+                                                  <span class="title">Оптимизация клиентов</span>
+                                              </span>
+                        <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
+                             xmlns="http://www.w3.org/2000/svg">
+                          <path
+                              d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
+                              fill="#1e2530"></path>
+                        </svg>
+                      </a>
+                    </div>
+                    <div class="hexagon-item">
+                      <div class="hex-item">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                      </div>
+                      <div class="hex-item">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                      </div>
+                      <a target="_blank" href="/admin/campaigns_history" @mouseenter="changeMessage('Результаты еженедельных проверок всех кампаний за один день.\n'+
+'За каждый день каждая кампания отображается только один раз, внутри которой находятся все записи этой кампании за этот день.')" class="hex-content">
+                                              <span class="hex-content-inner">
+                                                  <span class="icon">
+                                                      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8"
+                                                           fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                           style="margin:0 auto; position:relative; left:0px;">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                  stroke-width="2"
+                                                                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                                            </svg>
+                                                  </span>
+                                                  <span class="title">Оптимизация кампаний</span>
+                                              </span>
+                        <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
+                             xmlns="http://www.w3.org/2000/svg">
+                          <path
+                              d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
+                              fill="#1e2530"></path>
+                        </svg>
+                      </a>
+                    </div>
+                    <div class="hexagon-item">
+                      <div class="hex-item">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                      </div>
+                      <div class="hex-item">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                      </div>
+                      <a target="_blank" href="/admin/campaigns" @mouseenter="changeMessage('Импортирование кампаний в систему через встроенный помощник.')" class="hex-content">
+                                              <span class="hex-content-inner">
+                                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none"
+                                                       viewBox="0 0 24 24" stroke="currentColor"
+                                                       style="margin:0 auto; position:relative; left:0px;">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 13l-7 7-7-7m14-8l-7 7-7-7"/>
+</svg>
+                                                  <span class="title">Импорт кампаний</span>
+                                              </span>
+                        <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
+                             xmlns="http://www.w3.org/2000/svg">
+                          <path
+                              d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
+                              fill="#1e2530"></path>
+                        </svg>
+                      </a>
+                    </div>
+                    <div class="hexagon-item">
+                      <div class="hex-item">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                      </div>
+                      <div class="hex-item">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                      </div>
+                      <a target="_blank" href="/admin/checker-history" @mouseenter="changeMessage('Просмотр логов еженедельных оптимизаций в подробном виде.')" class="hex-content">
+                                              <span class="hex-content-inner">
+                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none"
+                                                      viewBox="0 0 24 24" stroke="currentColor"
+                                                      style="margin:0 auto; position:relative; left:0px;">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+</svg>
+                                                  <span class="title">Логи</span>
+                                              </span>
+                        <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
+                             xmlns="http://www.w3.org/2000/svg">
+                          <path
+                              d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
+                              fill="#1e2530"></path>
+                        </svg>
+                      </a>
+                    </div>
+                    <div class="hexagon-item">
+                      <div class="hex-item">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                      </div>
+                      <div class="hex-item">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                      </div>
+                      <a target="_blank" href="/admin/customers" @mouseenter="changeMessage('Просмотр, редактирование, добавление клиентов (customers).')" class="hex-content">
+                                              <span class="hex-content-inner">
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none"
+                                                     viewBox="0 0 24 24" stroke="currentColor"
+                                                     style="margin:0 auto; position:relative; left:0px;">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+</svg>
+
+                                                  <span class="title">Список клиентов</span>
+                                              </span>
+                        <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
+                             xmlns="http://www.w3.org/2000/svg">
+                          <path
+                              d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
+                              fill="#1e2530"></path>
+                        </svg>
+                      </a>
+                    </div>
+                    <div class="hexagon-item">
+                      <div class="hex-item">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                      </div>
+                      <div class="hex-item">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                      </div>
+                      <a target="_blank" href="/admin/campaigns" @mouseenter="changeMessage('Просмотр, редактирование, добавление и импорт кампаний.')" class="hex-content">
+                                                <span class="hex-content-inner">
+                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10"
+                                                      viewBox="0 0 20 20" fill="currentColor"
+                                                      style="margin:0 auto; position:relative; left:0px;">
+  <path fill-rule="evenodd"
+        d="M10.496 2.132a1 1 0 00-.992 0l-7 4A1 1 0 003 8v7a1 1 0 100 2h14a1 1 0 100-2V8a1 1 0 00.496-1.868l-7-4zM6 9a1 1 0 00-1 1v3a1 1 0 102 0v-3a1 1 0 00-1-1zm3 1a1 1 0 012 0v3a1 1 0 11-2 0v-3zm5-1a1 1 0 00-1 1v3a1 1 0 102 0v-3a1 1 0 00-1-1z"
+        clip-rule="evenodd"/>
+</svg>
+                                                  <span class="title">Список кампаний</span>
+                                              </span>
+                        <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
+                             xmlns="http://www.w3.org/2000/svg">
+                          <path
+                              d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
+                              fill="#1e2530"></path>
+                        </svg>
+                      </a>
+                    </div>
+                    <div class="hexagon-item">
+                      <div class="hex-item">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                      </div>
+                      <div class="hex-item">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                      </div>
+                      <a target="_blank" href="/admin/accounts" @mouseenter="changeMessage('Просмотр, редактирование, добавление аккаунтов. OAuth настройки для подключение к adwords.')" class="hex-content">
+                                              <span class="hex-content-inner">
+                                               <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor"
+                                                    style="margin:0 auto; position:relative; left:0px;">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/>
+</svg>
+                                                  <span class="title">Список аккаунтов</span>
+                                              </span>
+                        <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
+                             xmlns="http://www.w3.org/2000/svg">
+                          <path
+                              d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
+                              fill="#1e2530"></path>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="page-title home text-center h-10">
+                  {{message}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
 
     <p class="p-6">Включать и выключать кампании теперь можно из админки</p>
-    
+
     <div class="bg-gray-200 bg-opacity-25 grid grid-cols-1 md:grid-cols-2">
       <div class="p-6">
         <div class="flex items-center">
@@ -60,8 +288,6 @@
           </a>
         </div>
       </div>
-
-
 
 
       <div class="p-6 border-t border-gray-200 md:border-t-0 md:border-l">
@@ -159,16 +385,53 @@
             </div>
           </a>
         </div>
+
+
+
       </div>
+
+
     </div>
+    <p class="p-6">Оптимизация работает. Импорт кампаний работает через страницу "Список кампаний". Страница визарда по импорту кампаний ещё в разработке.ю</p>
   </div>
 </template>
 <script>
 import JetApplicationLogo from '@/Jetstream/ApplicationLogo'
 
 export default {
+  data() {
+    return {
+      // Customers list
+      message: '',
+      recieveMessage: '',
+      timer:null
+    }
+  },
   components: {
     JetApplicationLogo,
   },
+  methods: {
+    changeMessage(m) {
+      this.recieveMessage = m;
+      clearInterval(this.timer);
+      this.message = '';
+      let i = -1;
+      this.timer = setInterval(()=>{
+        i++;
+        this.message += this.recieveMessage[i] ;
+      }, 60-(Math.random()*20))
+    }
+
+  },
+
+  watch:{
+    message:function(){
+      console.log(this.recieveMessage.length + ' - ' + this.recieveMessage.length)
+      if (this.message.length >= this.recieveMessage.length){
+        clearInterval(this.timer);
+      }
+    }
+  }
+
 }
 </script>

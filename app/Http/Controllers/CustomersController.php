@@ -36,6 +36,11 @@ class CustomersController extends Controller
                 $searchString = $request->input('searchString');
                 // Обращаемся к базе данных
                 $order = ($request->input('type')) ? 'desc' : 'asc';
+                $itemsPerPage = 15;
+                if($request->has('itemsPerPage')){
+                    $itemsPerPage = $request->input('itemsPerPage');
+                }
+
                 // Сам запрос
                 $query = Customer::leftjoin('accounts', 'customers.account_id', '=', 'accounts.id')
                     ->select(
@@ -51,7 +56,7 @@ class CustomersController extends Controller
                     ->orWhere('customers.account_id', 'LIKE', '%' . $searchString . '%')
                     ->orWhere('customers.customer_id', 'LIKE', '%' . $searchString . '%')
                     ->orderBy($sortField, $order)
-                    ->paginate(15);
+                    ->paginate($itemsPerPage);
                 return $query;
                 break;
             case 'delete':

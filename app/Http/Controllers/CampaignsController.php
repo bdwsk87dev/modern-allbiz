@@ -48,8 +48,8 @@ class CampaignsController extends Controller
                 'campaigns.conv_value',
                 'campaigns.cost_30',
                 'campaigns.conv_30',
-                'campaigns.conv_value_30'
-
+                'campaigns.conv_value_30',
+                'customers.customer_id'
             )
             ->where('campaigns.id', 'LIKE', '%' . $searchString . '%')
             ->orWhere('campaigns.campaign_name', 'LIKE', '%' . $searchString . '%')
@@ -239,12 +239,14 @@ class CampaignsController extends Controller
                     if($perf){
                         $w = $perf['w'];
                         $m = $perf['m'];
-                        $newCampaign->cost = $w->cost;
+                        $newCampaign->cost = round(($w->cost/1000000),2);
                         $newCampaign->conv = $w->conversions;
                         $newCampaign->conv_value = $w->totalConvValue;
-                        $newCampaign->cost_30 = $m->cost;
+                        $newCampaign->cost_30 = round(($m->cost/1000000),2);
                         $newCampaign->conv_30 = $m->conversions;
                         $newCampaign->conv_value_30 = $m->totalConvValue;
+                        $newCampaign->save();
+
                     }
                     $newCampaign->save();
                 });
@@ -377,27 +379,26 @@ class CampaignsController extends Controller
     }
 
     public function campprefupdate(){
-        // Not adw optimized !!!
+        // Not adw optimized for big requests!!!
         $campaigns = Campaign::all();
         $campaigns->each(function ($campaign) {
-            $perf = $this->adwGetCampaignPerfomance($campaign->campaign_id, $campaign->customer_id);
-            if($perf){
-                $w = $perf['w'];
-                $m = $perf['m'];
-                $campaign->cost = $w->cost;
-                $campaign->conv = $w->conversions;
-                $campaign->conv_value = $w->totalConvValue;
-                $campaign->cost_30 = $m->cost;
-                $campaign->conv_30 = $m->conversions;
-                $campaign->conv_value_30 = $m->totalConvValue;
-                $campaign->save();
+            if ($campaign->id > 100) {
+                $perf = $this->adwGetCampaignPerfomance($campaign->campaign_id, $campaign->customer_id);
+                if($perf){
+                    $w = $perf['w'];
+                    $m = $perf['m'];
+                    $campaign->cost = round(($w->cost/1000000),2);
+                    $campaign->conv = $w->conversions;
+                    $campaign->conv_value = $w->totalConvValue;
+                    $campaign->cost_30 = round(($m->cost/1000000),2);
+                    $campaign->conv_30 = $m->conversions;
+                    $campaign->conv_value_30 = $m->totalConvValue;
+                    $campaign->save();
+                }
             }
+
         });
     }
-
-
-
-
 }
 
 

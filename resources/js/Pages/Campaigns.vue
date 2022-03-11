@@ -396,6 +396,14 @@
                     </div>
                   </div>
                 </th>
+                <th @click="changeSort('customers.customer_id')"
+                    class="cursor-pointer px-3 py-3 border-b-2 border-blue-500 text-left text-sm leading-4 text-blue-500 tracking-wider w-36">
+                  <div class="inline-flex">
+                    <div class="inline-block">Id клиента</div>
+                    <div class="inline-block min-w-16px">{{ sortIconShow('customers.customer_name') }}
+                    </div>
+                  </div>
+                </th>
                 <th @click="changeSort('campaigns.phase')"
                     class="cursor-pointer px-3 py-3 border-b-2 border-blue-500  text-left text-sm leading-4 text-blue-500 tracking-wider">
                   <div class="inline-flex">
@@ -512,6 +520,9 @@
                 </td>
                 <td class="px-3 py-4  border-b text-blue-900 text-sm leading-5 break-normal">
                   {{ col.customer_name }}
+                </td>
+                <td class="px-3 py-4  border-b text-blue-900 text-sm leading-5 break-normal">
+                  {{ col.customer_id[0]+col.customer_id[1]+col.customer_id[2]+'-'+col.customer_id[3]+col.customer_id[4]+col.customer_id[5]+'-'+col.customer_id[6]+col.customer_id[7]+col.customer_id[8]+col.customer_id[9] }}
                 </td>
                 <td class="px-3 py-4  border-b border-sky-900 text-blue-900 text-sm leading-5 break-normal">
                   <p v-if="col.phase == 0">Новая компания</p>
