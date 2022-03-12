@@ -65,17 +65,18 @@ class CheckerController
     {
         // Получаем только те customers у которых есть хотя бы одна активная кампания
         $result = Customer::with('account','campaigns')
+            // ->where('customer_id','=', '4703533588')
             ->whereHas('account', function ($query) {
                 // Проверка на то что аккаунт активный
                 return $query->where('active', '=', 1);
             })
             ->whereHas('account', function ($query) {
                 // Проверка на 7 дней на уровне customer
-                return $query->whereNull('last_check_date')->orWhere('last_check_date','=','')->orWhere('last_check_date', '<', Carbon::now()->subDays(7)->format('Y.m.d'));
+                return $query->whereNull('last_check_date')->orWhere('last_check_date','=','')->orWhere('last_check_date', '<', Carbon::now()->subDays(7)->format('d.m.Y'));
             })
             ->whereHas('campaigns', function ($query) {
                 // Проверка на 7 дней на уровне кампании
-                $query = $query->whereNull('last_check_date')->orWhere('last_check_date','=','')->orWhere('last_check_date', '<', Carbon::now()->subDays(7)->format('Y.m.d'));
+                $query = $query->whereNull('last_check_date')->orWhere('last_check_date','=','')->orWhere('last_check_date', '<', Carbon::now()->subDays(7)->format('d.m.Y'));
                 // Проверка что кампания включена в админке.
                 $query = $query->where('status', '=', 'ENABLED');
                 // Проверка на то что кампания активная
@@ -113,6 +114,10 @@ class CheckerController
          * Проверяем каждый адвордс аккаунт ( Customer ) по отдельности
          */
         $customers->each(function ($customer) {
+
+            // todo ext 1
+            // if($customer->customer_id != "4703533588") return;
+
             /* logs */
             $this->createLog([
                 'task_id' => $this->task_id,
@@ -143,6 +148,8 @@ class CheckerController
                 }
                 // Перебераем все компании аккаунта ( shopping )
                 $campaigns->each(function ($campaign) use (&$logCampaign, $customer, $campaigns) {
+
+
 
                     // Проверяем есть ли такая кампания в базе данных, и активна ли она.
                     $query = Campaign::where('campaign_id', '=', $campaign->getId());

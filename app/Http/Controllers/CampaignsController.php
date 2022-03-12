@@ -54,6 +54,7 @@ class CampaignsController extends Controller
             ->where('campaigns.id', 'LIKE', '%' . $searchString . '%')
             ->orWhere('campaigns.campaign_name', 'LIKE', '%' . $searchString . '%')
             ->orWhere('campaigns.campaign_id', 'LIKE', '%' . $searchString . '%')
+            ->orWhere('customers.customer_id', 'LIKE', '%' . str_replace('-','',$searchString).'%')
             ->orWhere('customers.customer_name', 'LIKE', '%' . $searchString . '%')
             ->orderBy($sortField, $order)
             ->paginate(15);

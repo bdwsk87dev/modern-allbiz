@@ -2,7 +2,7 @@
   <div>
     <div class="p-3 sm:px-20 bg-white border-b border-gray-200">
       <div class="text-xs mb-4 text-gray-500">
-        <div class="float-left">Дата последнего обновления : 23.02.2022 - 21:30</div><div class="float-right">Версия алгоритма : январь 2022</div>
+        <div class="float-left">Дата последнего обновления : 12.03.2022 - 23:07</div><div class="float-right">Версия алгоритма : январь 2022</div>
       </div>
     </div>
     <div class="p-6 sm:px-20 bg-white border-b border-gray-200 bg-gray-100">

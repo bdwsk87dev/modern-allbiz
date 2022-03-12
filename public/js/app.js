@@ -40363,7 +40363,7 @@ var staticRenderFns = [
       [
         _c("div", { staticClass: "text-xs mb-4 text-gray-500" }, [
           _c("div", { staticClass: "float-left" }, [
-            _vm._v("Дата последнего обновления : 23.02.2022 - 21:30")
+            _vm._v("Дата последнего обновления : 12.03.2022 - 23:07")
           ]),
           _c("div", { staticClass: "float-right" }, [
             _vm._v("Версия алгоритма : январь 2022")
